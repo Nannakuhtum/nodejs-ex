@@ -8,12 +8,13 @@
     "chai-http": "^2.0.1",
     "ejs": "^2.4.1",
     "express": "^4.13.4",
+    "jsdom": "^15.1.1",
     "mocha": "^2.4.5",
     "mongodb": "^2.1.16",
     "morgan": "^1.7.0",
     "object-assign": "4.1.0",
-    "jsdom": "^15.1.1",
-    "puppeteer": "^1.20.0"
+    "request": "^2.88.0",
+    "request-promise-native": "^1.0.7"
   },
   "engine": {
     "node": "*",

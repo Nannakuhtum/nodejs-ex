@@ -1,18 +1,10 @@
 const jsdom = require('jsdom');
 const { JSDOM } = jsdom;
 const Readability = require('./Readability');
-const puppeteer = require('puppeteer');
-
+const request = require('request-promise-native');
 
 async function getClutterFreeHtml(url) {
-    const browser = await puppeteer.launch();
-    const page = await browser.newPage();
-    await page.goto(url);
-
-    const bodyHTML = await page.evaluate(() => document.body.innerHTML);
-
-    await browser.close();
-
+    const bodyHTML = await request(url);        
     const dom = new JSDOM(bodyHTML, {
         url: url,
         referrer: "https://google.com/",
