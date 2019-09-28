@@ -83,7 +83,7 @@ app.get('/readability', async function (req, res) {
   const url = req.query.url; 
   const clutterFreeArtile = await getClutterFreeHtml(url)
   
-  res.send(clutterFreeArtile.content);
+  res.send(clutterFreeArtile);
 });
 
 // error handling

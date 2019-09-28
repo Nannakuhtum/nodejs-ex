@@ -14,8 +14,8 @@
     padding: 20px 0px;
   }
 
-  #clutterFreeContainer {
-    max-width: 1000px;
+  #title, #clutterFreeContainer, #clutterFreeContainer img {
+    max-width: 800px;
   }
 
   #loading {
@@ -42,6 +42,8 @@
       </form>
     </div>
 
+    <h2 id="title"></h2>
+
     <div id="clutterFreeContainer">
       <img src="https://media.giphy.com/media/2c85mEsTFONgM0sOQ/source.gif" id="loading">
     </div>
@@ -58,14 +60,20 @@
     $urlForm.on('submit', function (e) {
       e.preventDefault();
       var $loading = $('#loading');
+      var $title = $('#title');
+      var $clutterFreeContainer = $("#clutterFreeContainer");
       var inputUrl = $(urlInput).val();
 
       $loading.show();
+      $clutterFreeContainer.html('');
+      $title.html('');
       console.log('inputUrl', inputUrl);
 
       $.get("/readability?url=" + inputUrl, function (data) {
         $loading.hide();
-        $("#clutterFreeContainer").html(data);        
+        console.log('data', data);
+        $title.html(data.title);
+        $clutterFreeContainer.html(data.content);        
       });
     });
   </script>
